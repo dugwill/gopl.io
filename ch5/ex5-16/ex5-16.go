@@ -1,7 +1,7 @@
-// Copyright © 2016 Alan A. A. Donovan & Brian W. Kernighan.
+// Copyright © 2017 Douglas Will.
 // License: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
-// See page 142.
+// See page 143 in The GoPL book.
 
 //ex5-16 Joins individual strings into a single string separated by a space	
 
