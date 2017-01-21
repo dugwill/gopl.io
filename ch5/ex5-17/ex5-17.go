@@ -16,8 +16,10 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"os"
+	"time"
 
 	"golang.org/x/net/html"
 )
@@ -60,7 +62,7 @@ func main() {
 // ElementsByTagName takes a html document and a list of tag names
 // and returns a slice of html nodes matching the tag names
 func ElementByTagName(doc *html.Node, name ...string) []*html.Node {
-
+	defer trace("ElementByTagName")()
 	var results []*html.Node // Results holds the nodes that match the target data
 
 	//Create and load map with target search criteria
@@ -76,6 +78,7 @@ func ElementByTagName(doc *html.Node, name ...string) []*html.Node {
 	// is appended to the results list
 	var visitAllNodes func(n *html.Node)
 	visitAllNodes = func(n *html.Node) {
+		defer trace("visitAllNodes")()
 		for c := n.FirstChild; c != nil; c = c.NextSibling {
 			if targets[c.Data] {
 				results = append(results, c)
@@ -88,4 +91,10 @@ func ElementByTagName(doc *html.Node, name ...string) []*html.Node {
 
 	return results
 
+}
+
+func trace(msg string) func() {
+	start := time.Now()
+	log.Printf("enter %s", msg)
+	return func() { log.Printf("exit %s (%s)", msg, time.Since(start)) }
 }
