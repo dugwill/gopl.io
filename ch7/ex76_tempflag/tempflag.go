@@ -10,7 +10,7 @@ import (
 	"flag"
 	"fmt"
 
-	"gopl.io/ch7/tempconv"
+	"github.com/dugwill/gopl.io/ch7/ex76_tempconv"
 )
 
 //!+
@@ -18,7 +18,7 @@ var temp = tempconv.CelsiusFlag("temp", 20.0, "the temperature")
 
 func main() {
 	flag.Parse()
-	fmt.Println(*temp)
+	fmt.Printf("Converted Temp: %s", *temp)
 }
 
 //!-

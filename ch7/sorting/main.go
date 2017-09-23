@@ -28,6 +28,7 @@ var tracks = []*Track{
 	{"Go", "Moby", "Moby", 1992, length("3m37s")},
 	{"Go Ahead", "Alicia Keys", "As I Am", 2007, length("4m36s")},
 	{"Ready 2 Go", "Martin Solveig", "Smash", 2011, length("4m24s")},
+	{"Bobby", "Bobby McBobbyface", "They Call Me Bobby", 1900, length("0m01s")},
 }
 
 func length(s string) time.Duration {

@@ -14,12 +14,13 @@ type Bicycle struct {
 	CurrentGear int     // current gear setting
 	Cadence     float32 // pedel speed in revs per minute
 	TireSize    int     // tire diameter in inches
+	valid		bool	// 
 }
 
 //CalcSpeed take a point to a Bicycle and calculates the speed of the bike
 //return in is MPH
 
-func (b Bicycle) CalcSpeed() float32 {
+func (b Bicycle) CalcSpeed() float32{
 
 	tireCircumference := 2 * math.Pi * float32(b.TireSize/2) //find circumference of current bycycle tire
 
@@ -30,3 +31,9 @@ func (b Bicycle) CalcSpeed() float32 {
 	return (speedMPH)
 
 }
+
+func (b Bicycle) CalcCircumference() float32{
+
+	return (2 * math.Pi * float32(b.TireSize/2))
+}
+
